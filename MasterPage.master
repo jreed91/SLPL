@@ -1,0 +1,136 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>South Liberty Public Library</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/animate-custom.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery.js" type="text/javascript"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js" type="text/javascript"></script>
+    <script>
+        var TogetherJSConfig_findRoom = "SLPL";
+    </script>
+    <script src="https://togetherjs.com/togetherjs-min.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div class="wrap">
+            <nav class="navbar navbar-default" role="navigation">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/Default.aspx">South Liberty Public Library</a>
+                  </div>
+
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                      <li><a runat="server" href="~/Default.aspx">Home</a></li>
+                      <li><a runat="server"  href="~/ViewMaterials.aspx">Search the Library</a></li>
+                      <li><a  runat="server"  href="~/about.aspx">About</a></li>
+                      <li><a  runat="server"  href="~/Contact.aspx">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                        <a id="A2" runat="server" href="#"  class="dropdown-toggle" data-toggle="dropdown">
+                            <asp:LoginName ID="LoginName1" runat="server"  />  <i class="glyphicon glyphicon-user"></i><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a id="A4" runat="server" href="~/patrons/Default.aspx">My Profile</a></li>
+                          <li class="divider"></li>
+                          <li><a id="A6" runat="server" href="#"><asp:LoginStatus ID="LoginStatus1" LogoutAction="Redirect" LogoutPageUrl="~/Default.aspx"  runat="server" />
+                              </a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<b class="caret"></b></a>
+                           <ul class="dropdown-menu">
+                               <li><a runat="server" href="~/librarians/RentMaterial.aspx">Rent</a></li>
+                               <li><a runat="server" href="~/librarians/ReturnMaterial.aspx">Return</a></li>
+                               <li><a id="A7" runat="server" href="~/librarians/CurrentRented.aspx">Currently Rented</a></li>
+                               <li class="divider"></li>
+                               <li><a runat="server" href="~/librarians/AddNewPatron.aspx">Add a New Patron</a></li>
+                               <li><a runat="server" href="~/librarians/ViewPatrons.aspx">View Patrons</a></li>
+                               <li class="divider"></li>
+                               <li><a runat="server" href="~/librarians/AddMaterials.aspx">Add New Material</a></li>
+                               <li><a runat="server" href="~/librarians/ViewMaterials.aspx">View Material</a></li>
+                               <li class="divider"></li>
+                               <li><asp:LoginStatus LogoutAction="Redirect" LogoutPageUrl="~/Default.aspx" ID="LoginStatus2" runat="server" /></li>
+                            </ul>
+                      </li>
+                        <li><a href="#" onclick="TogetherJS(this); return false" data-end-togetherjs-html="End Support">Get Support</a></li>
+                        
+                    </ul>
+                  </div><!-- /.navbar-collapse -->
+                </nav>
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                </asp:ContentPlaceHolder>
+            <div class="push"></div>
+           </div>
+        
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul>
+                            <li><h3>Library</h3></li>
+                            <li><a runat="server" href="~/ViewMaterials.aspx">Search the Library</a></li>
+                            <li><a id="A3" runat="server" href="~/about.aspx">About</a></li>
+                            <li><a id="A5" runat="server" href="~/Contact.aspx">Contact</a></li><br />
+                            <li><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1490.3246013439025!2d-91.53519488947988!3d41.66332077120141!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87e441f3d6aeeaeb%3A0xc46d4a23a0387f69!2s21+E+Market+St%2C+Iowa+City%2C+IA+52245%2C+USA!5e0!3m2!1sen!2s!4v1386514493995" width="200" height="200" frameborder="0" style="border:0"></iframe></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul>
+                            <li><h3>My Account</h3></li>
+                            <li><a runat="server" href="~/patrons/Default.aspx">My Profile</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul>
+                            <li><h3>About</h3></li>
+                            <li><address>
+                              <strong>South Liberty Public Library</strong><br>
+                              21 E Market Street<br>
+                              Iowa City, IA 52242<br>
+                              <abbr title="Phone">P:</abbr> (123) 456-7890
+                            </address></li>
+                            <li><h4>Stats</h4></li>
+                            <li>Total in Circulation: <asp:Label ID="count" runat="server" Text=""></asp:Label></li>
+                            <li>Total Members: <asp:Label ID="countMembers" runat="server" Text=""></asp:Label></li>
+                            <li>Today's Date: <asp:Label ID="currenttime" runat="server" Text="Label"></asp:Label></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul>
+                            <li><h3>Social</h3></li>
+                            <li><a class="twitter-timeline" href="https://twitter.com/SLPL_Group7" data-widget-id="401130009995116544">Tweets by @SLPL_Group7</a>
+<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+
+</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3" id="manifest">
+                        <center>Created by Jacob Reed, Zhongli Zhao, Chang Shang and Haoran Wang</center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
